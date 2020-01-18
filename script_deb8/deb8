@@ -362,7 +362,7 @@ END
 mkdir -p /home/vps/public_html
 cat > /home/vps/public_html/Wago.ovpn <<-END
 # OpenVPN Configuration by Wago
-# Created by http://www.wagovon.tk
+# Created by http://www.wagovpn.tk
 # Hosted by WaGo~G
 
 client
@@ -544,8 +544,8 @@ echo " "
 echo "Installation has been completed!!"
 echo " "
 echo "--------------------------- Configuration Setup Server ----------------------"
-echo "                         Copyright WaGo~G www.wagovpn.tk                      "
-echo "                    http://unlimitedvpn.cf                "
+echo "                         Copyright WaGo~G                     "
+echo "                    http://www.unlimitedvpn.cf                "
 echo "                  Created By WaGo~G(WEB.tk/www.wagovpn.tk)              "
 echo "-----------------------------------------------------------------------------"
 echo ""  | tee -a log-install.txt
@@ -588,5 +588,5 @@ echo "   - Vnstat                  : http://$MYIP/vnstat/"  | tee -a log-install
 echo "   - MRTG                    : http://$MYIP/mrtg/"  | tee -a log-install.txt
 echo "   - Installation Log        : cat /root/log-install.txt"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "------------ Script Created By WaGo~G(WEB.tk/www.wagovps.tk) -----------"
+echo "------------ Script Created By WaGo~G(WEB.tk/www.wagovpn.tk) -----------"
 echo "---------------------------- Hosted by WaGo~G  -----------------------------"
