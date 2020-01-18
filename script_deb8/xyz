@@ -1,6 +1,6 @@
 #!/bin/sh
-# Created by https://www.facebook.com/joash.singh.90
-# Hosted by Dope~kid
+# Created by http://www.wagovpn.tk
+# Hosted by WaGo~G
 
 #Requirement
 if [ ! -e /usr/bin/curl ]; then
@@ -79,7 +79,7 @@ service vnstat restart
 
 # install screenfetch
 cd
-wget -O /usr/bin/screenfetch "https://raw.githubusercontent.com/dopekid/premscript_rdcl/master/script_deb8/screenfetch"
+wget -O /usr/bin/screenfetch "https://raw.githubusercontent.com/wago/premscript_rdcl/master/script_deb8/screenfetch"
 chmod +x /usr/bin/screenfetch
 echo "clear" >> .profile
 echo "screenfetch" >> .profile
@@ -177,7 +177,7 @@ echo "/bin/false" >> /etc/shells
 
 # install vnstat gui
 cd /home/vps/public_html/
-wget https://raw.githubusercontent.com/dopekid/premscript_rdcl/master/script_deb8/vnstat_php_frontend-1.5.1.tar.gz
+wget https://raw.githubusercontent.com/wago/premscript_rdcl/master/script_deb8/vnstat_php_frontend-1.5.1.tar.gz
 tar xf vnstat_php_frontend-1.5.1.tar.gz
 rm vnstat_php_frontend-1.5.1.tar.gz
 mv vnstat_php_frontend-1.5.1 vnstat
@@ -231,8 +231,8 @@ service squid3 restart
 
 # install stunnel4
 apt-get -y install stunnel4
-wget -O /etc/stunnel/stunnel.pem "https://raw.githubusercontent.com/dopekid/premscript_rdcl/master/script_deb8/stunnel.pem"
-wget -O /etc/stunnel/stunnel.conf "https://raw.githubusercontent.com/dopekid/premscript_rdcl/master/script_deb8/stunnel.conf"
+wget -O /etc/stunnel/stunnel.pem "https://raw.githubusercontent.com/wago/premscript_rdcl/master/script_deb8/stunnel.pem"
+wget -O /etc/stunnel/stunnel.conf "https://raw.githubusercontent.com/wago/premscript_rdcl/master/script_deb8/stunnel.conf"
 sed -i $MYIP2 /etc/stunnel/stunnel.conf
 sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 service stunnel4 restart
@@ -274,8 +274,8 @@ mkdir /var/lib/premium-script
 /etc/init.d/pptpd restart
 
 # install mrtg
-wget -O /etc/snmp/snmpd.conf "https://raw.githubusercontent.com/dopekid/premscript_rdcl/master/script_deb8/snmpd.conf"
-wget -O /root/mrtg-mem.sh "https://raw.githubusercontent.com/dopekid/premscript_rdcl/master/script_deb8/mrtg-mem.sh"
+wget -O /etc/snmp/snmpd.conf "https://raw.githubusercontent.com/wago/premscript_rdcl/master/script_deb8/snmpd.conf"
+wget -O /root/mrtg-mem.sh "https://raw.githubusercontent.com/wago/premscript_rdcl/master/script_deb8/mrtg-mem.sh"
 chmod +x /root/mrtg-mem.sh
 cd /etc/snmp/
 sed -i 's/TRAPDRUN=no/TRAPDRUN=yes/g' /etc/default/snmpd
@@ -283,7 +283,7 @@ service snmpd restart
 snmpwalk -v 1 -c public localhost 1.3.6.1.4.1.2021.10.1.3.1
 mkdir -p /home/vps/public_html/mrtg
 cfgmaker --zero-speed 100000000 --global 'WorkDir: /home/vps/public_html/mrtg' --output /etc/mrtg.cfg public@localhost
-curl "https://raw.githubusercontent.com/dopekid/premscript_rdcl/master/script_deb8/mrtg.conf" >> /etc/mrtg.cfg
+curl "https://raw.githubusercontent.com/wago/premscript_rdcl/master/script_deb8/mrtg.conf" >> /etc/mrtg.cfg
 sed -i 's/WorkDir: \/var\/www\/mrtg/# WorkDir: \/var\/www\/mrtg/g' /etc/mrtg.cfg
 sed -i 's/# Options\[_\]: growright, bits/Options\[_\]: growright/g' /etc/mrtg.cfg
 indexmaker --output=/home/vps/public_html/mrtg/index.html /etc/mrtg.cfg
@@ -300,11 +300,11 @@ mkdir /etc/openvpn/easy-rsa/keys
 sed -i 's|export KEY_COUNTRY="US"|export KEY_COUNTRY="SA"|' /etc/openvpn/easy-rsa/vars
 sed -i 's|export KEY_PROVINCE="CA"|export KEY_PROVINCE="KwaZulu-Natal"|' /etc/openvpn/easy-rsa/vars
 sed -i 's|export KEY_CITY="SanFrancisco"|export KEY_CITY="Durban"|' /etc/openvpn/easy-rsa/vars
-sed -i 's|export KEY_ORG="Fort-Funston"|export KEY_ORG="DopekidVPN"|' /etc/openvpn/easy-rsa/vars
-sed -i 's|export KEY_EMAIL="me@myhost.mydomain"|export KEY_EMAIL="joashsingh14@gmail.com"|' /etc/openvpn/easy-rsa/vars
-sed -i 's|export KEY_OU="MyOrganizationalUnit"|export KEY_OU="dopekid"|' /etc/openvpn/easy-rsa/vars
+sed -i 's|export KEY_ORG="Fort-Funston"|export KEY_ORG="WagoVPN"|' /etc/openvpn/easy-rsa/vars
+sed -i 's|export KEY_EMAIL="me@myhost.mydomain"|export KEY_EMAIL="warrenpretorius8@gmail.com"|' /etc/openvpn/easy-rsa/vars
+sed -i 's|export KEY_OU="MyOrganizationalUnit"|export KEY_OU="wago"|' /etc/openvpn/easy-rsa/vars
 sed -i 's|export KEY_NAME="EasyRSA"|export KEY_NAME="dopekid"|' /etc/openvpn/easy-rsa/vars
-sed -i 's|export KEY_OU=changeme|export KEY_OU=dopekid|' /etc/openvpn/easy-rsa/vars
+sed -i 's|export KEY_OU=changeme|export KEY_OU=wago|' /etc/openvpn/easy-rsa/vars
 #Create Diffie-Helman Pem
 openssl dhparam -out /etc/openvpn/dh2048.pem 2048
 # Create PKI
@@ -360,10 +360,10 @@ END
 
 #Create OpenVPN Config
 mkdir -p /home/vps/public_html
-cat > /home/vps/public_html/Dopekid.ovpn <<-END
-# OpenVPN Configuration by Dopekid
-# Created by https://www.facebook.com/joash.singh.90
-# Hosted by Dope~kid
+cat > /home/vps/public_html/Wago.ovpn <<-END
+# OpenVPN Configuration by Wago
+# Created by http://www.wagovpn.tk
+# Hosted by WaGo~G
 
 client
 dev tun
@@ -396,12 +396,12 @@ http-proxy-option CUSTOM-HEADER Host www.cellc.co.za
 http-proxy-option CUSTOM-HEADER X-Online-Host www.cellc.co.za
 
 END
-echo '<ca>' >> /home/vps/public_html/Dopekid.ovpn
-cat /etc/openvpn/ca.crt >> /home/vps/public_html/Dopekid.ovpn
-echo '</ca>' >> /home/vps/public_html/Dopekid.ovpn
+echo '<ca>' >> /home/vps/public_html/Wago.ovpn
+cat /etc/openvpn/ca.crt >> /home/vps/public_html/Wago.ovpn
+echo '</ca>' >> /home/vps/public_html/Wago.ovpn
 cd /home/vps/public_html/
-tar -czf /home/vps/public_html/DopekidVPN.tar.gz Dopekid.ovpn
-tar -czf /home/vps/public_html/Dopekid.tar.gz Dopekid.ovpn
+tar -czf /home/vps/public_html/WagoVPN.tar.gz Wago.ovpn
+tar -czf /home/vps/public_html/Wago.tar.gz Wago.ovpn
 cd
 
 # Restart openvpn
@@ -434,9 +434,9 @@ echo 1 > /proc/sys/net/ipv4/ip_forward
 sed -i 's|#net.ipv4.ip_forward=1|net.ipv4.ip_forward=1|' /etc/sysctl.conf
 
 # install badvpn
-wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/dopekid/premscript_rdcl/master/script_deb8/badvpn-udpgw"
+wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/wago/premscript_rdcl/master/script_deb8/badvpn-udpgw"
 if [ "$OS" == "x86_64" ]; then
-  wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/dopekid/premscript_rdcl/master/script_deb8/badvpn-udpgw64"
+  wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/wago/premscript_rdcl/master/script_deb8/badvpn-udpgw64"
 fi
 sed -i '$ i\screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300' /etc/rc.local
 chmod +x /usr/bin/badvpn-udpgw
@@ -444,7 +444,7 @@ screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:730
 
 # setting banner
 rm /etc/issue.net
-wget -O /etc/issue.net "https://raw.githubusercontent.com/dopekid/premscript_rdcl/master/script_deb8/issue.net"
+wget -O /etc/issue.net "https://raw.githubusercontent.com/wago/premscript_rdcl/master/script_deb8/issue.net"
 sed -i 's@#Banner@Banner@g' /etc/ssh/sshd_config
 sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 service ssh restart
@@ -517,7 +517,7 @@ iptables-restore < /etc/iptables.up.rules
 
 # download script
 cd
-wget https://raw.githubusercontent.com/dopekid/premscript_rdcl/master/script_deb8/install-premiumscript.sh -O - -o /dev/null|sh
+wget https://raw.githubusercontent.com/wago/premscript_rdcl/master/script_deb8/install-premiumscript.sh -O - -o /dev/null|sh
 
 # finalizing
 apt-get -y autoremove
@@ -544,9 +544,9 @@ echo " "
 echo "Installation has been completed!!"
 echo " "
 echo "--------------------------- Configuration Setup Server ----------------------"
-echo "                         Copyright DopekidFreenetTricks                      "
-echo "                    https://dopekidfreenettricks.blogspot.com                "
-echo "                  Created By Joash Singh(fb.com/joash.singh.90)              "
+echo "                         Copyright WaGo~G                      "
+echo "                    http://www.unlimitedvpn.cf"
+echo "                  Created By WaGo~G(WEB.tk/www.wagovpn.tk"
 echo "-----------------------------------------------------------------------------"
 echo ""  | tee -a log-install.txt
 echo "Server Information"  | tee -a log-install.txt
@@ -581,12 +581,12 @@ echo "   Explanation of scripts and VPS setup" | tee -a log-install.txt
 echo "   follow this link: http://bit.ly/penjelasansetup"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "Important Information"  | tee -a log-install.txt
-echo "   - Download Config OpenVPN : http://$MYIP:85/Dopekid.ovpn"  | tee -a log-install.txt
-echo "     Mirror (*.tar.gz)       : http://$MYIP:85/DopekidVPN.tar.gz"  | tee -a log-install.txt
+echo "   - Download Config OpenVPN : http://$MYIP:85/Wago.ovpn"  | tee -a log-install.txt
+echo "     Mirror (*.tar.gz)       : http://$MYIP:85/WagoVPN.tar.gz"  | tee -a log-install.txt
 echo "   - Webmin                  : http://$MYIP:10000/"  | tee -a log-install.txt
 echo "   - Vnstat                  : http://$MYIP/vnstat/"  | tee -a log-install.txt
 echo "   - MRTG                    : http://$MYIP/mrtg/"  | tee -a log-install.txt
 echo "   - Installation Log        : cat /root/log-install.txt"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "------------ Script Created By Joash Singh(fb.com/joash.singh.90) -----------"
-echo "---------------------------- Hosted by Dope~kid -----------------------------"
+echo "------------ Script Created By WaGo~G(WEB.tk/www.wagovpn.tk) -----------"
+echo "---------------------------- Hosted by WaGo~G -----------------------------"
