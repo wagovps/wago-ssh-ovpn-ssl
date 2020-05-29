@@ -25,7 +25,7 @@ wget https://raw.githubusercontent.com/wagovps/wago-ssh-ovpn-ssl/master/script_d
 
 - MRTG - http://VPSIP:85/mrtg/
 
-- OVPN Config - http://VPSIP:85/Dopekid.ovpn | http://VPSIP:85/DopekidVPN.tar.gz or http://VPSIP:85/Dopekid.tar
+- OVPN Config - http://VPSIP:85/Dopekid.ovpn | http://VPSIP:85/WagoVPN.tar.gz or http://VPSIP:85/wago.tar
 
 
 ### Service and Port Informations:
@@ -62,7 +62,7 @@ wget https://raw.githubusercontent.com/wagovps/wago-ssh-ovpn-ssl/master/script_d
 
 ### Credits:
 
-https://www.facebook.com/joash.singh.90
+http//:www.wagovpn.tk
 
 
 
